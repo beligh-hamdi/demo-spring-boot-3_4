@@ -1,0 +1,29 @@
+spring:
+ application.name: demo
+ data.mongodb:
+  uri: mongodb://${spring.data.mongodb.host}:${spring.data.mongodb.port}/${spring.data.mongodb.database}
+  database: batchdb
+  host: 127.0.0.1
+  port: 27017
+ batch:
+  job:
+   enabled: true
+
+
+logging:
+ level:
+  org:
+   springframework:
+    data:
+     mongodb:
+      core:
+       MongoTemplate: DEBUG
+
+
+application:
+ batch:
+  file-input: sample-data.csv
+  output-collection-name: csv_records
+
+
+ # https://github.com/spring-projects/spring-batch/blob/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/metrics/PrometheusConfiguration.java
